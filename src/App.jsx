@@ -4,13 +4,33 @@ import List from './pages/List'
 import Login from './pages/Login'
 import Details from './pages/Details'
 import Analytics from './pages/Analytics'
+import ProtectedRoute from './components/ProtectedRoute'
 const App = () => {
   return (
     <Routes>
       <Route path='/' element={<Login/>} />
-      <Route path='/' element={<List/>} />
-      <Route path='/details/:id' element={<Details/>}/>
-      <Route path='/analytics' element={<Analytics/>} />
+
+      <Route path='/list' 
+      element={
+      <ProtectedRoute>
+        <List/>
+      </ProtectedRoute>} 
+      />
+
+      <Route path='/details/:id'
+      element={
+      <ProtectedRoute>
+        <Details/>
+      </ProtectedRoute>}
+      />
+
+      <Route path='/analytics' 
+      element={
+      <ProtectedRoute>
+        <Analytics/>
+      </ProtectedRoute>} 
+      />
+
     </Routes>
   )
 }
