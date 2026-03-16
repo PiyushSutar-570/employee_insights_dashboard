@@ -1,0 +1,11 @@
+import React from 'react'
+
+const List = () => {
+  return (
+    <div className='p-6'>
+        <h1 className='text-xl font-bold'>Employee List</h1>
+    </div>
+  )
+}
+
+export default List
